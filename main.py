@@ -45,8 +45,8 @@ st.markdown('<div class="center-content">', unsafe_allow_html=True)
 
 # 제목
 st.markdown("""
-<div style='font-size:54px;'>  <!-- 전체 폰트 크기 설정 -->
-    <span style='color:#008d62; font-weight:bold; font-size:65px;'>01월 25일</span>이 주유하기 좋은 날!
+<div style='font-size:35px;'>  <!-- 전체 폰트 크기 설정 -->
+    <span style='color:#008d62; font-weight:bold; font-size:45px;'>01월 25일</span>이 주유하기 좋은 날!
 </div>
 """, unsafe_allow_html=True)
 
@@ -62,7 +62,7 @@ st.markdown(f"""
 st.divider()
 # 그래프1: 증감율 (임시 라인그래프)
 st.markdown("""
-            <div style='text-align: center; color:#008d62; font-size: 25px;'>
+            <div style='text-align: center; color:#008d62; font-size: 20px;'>
             <span style='color:#008d62 font-size: 40px; font-weight:500;'>증감율
             </div>
             """, unsafe_allow_html=True)
@@ -75,7 +75,7 @@ st.plotly_chart(fig1)
 
 # 그래프2: 휘발유가 (소비자가; 임시 라인그래프)
 st.markdown("""
-            <div style='text-align: center; color:#008d62; font-size: 25px;'>
+            <div style='text-align: center; color:#008d62; font-size: 20px;'>
             <span style='color:#008d62 font-size: 40px; font-weight:500;'>휘발유가
             </div>
             """, unsafe_allow_html=True)
@@ -94,7 +94,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 if model_option != "select" or stat_option != "select":
     if model_option != "select":
         st.markdown(f"""
-            <div style='color:#808080 font-size: 30px;'>
+            <div style='color:#808080 font-size: 18px;'>
             <span style='font-weight:200;'>selected model: {model_option}
             </div>
             """, unsafe_allow_html=True)
@@ -103,7 +103,7 @@ if model_option != "select" or stat_option != "select":
             image_url = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/25-1_proj_model1_graph.png?raw=true"
             image_url2 = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/25-1_proj_model1_Nscore.png?raw=true"
             st.markdown("""
-            <div style='text-align: center; font-size: 30px;'>
+            <div style='text-align: center; font-size: 20px;'>
             <span style='font-weight:500;'>일변수 선형회귀 모델
             </div>
             """, unsafe_allow_html=True)
@@ -131,7 +131,7 @@ if model_option != "select" or stat_option != "select":
             image_url3 = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/25-1_proj_model2_graph.png?raw=true"
             image_url4 = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/25-1_proj_model2_Rscore.png?raw=true"
             st.markdown("""
-            <div style='text-align: center; font-size: 30px;'>
+            <div style='text-align: center; font-size: 20px;'>
             <span style='font-weight:500;'>이변수 선형회귀 모델
             </div>
             """, unsafe_allow_html=True)
@@ -158,7 +158,7 @@ if model_option != "select" or stat_option != "select":
             image_url5 = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/25-1_proj_model3_graph.png?raw=true"
             image_url6 = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/25-1_proj_model3_Rscore.png?raw=true"
             st.markdown("""
-            <div style='text-align: center; font-size: 30px;'>
+            <div style='text-align: center; font-size: 20px;'>
             <span style='font-weight:500;'>4변수 선형회귀 모델
             </div>
             """, unsafe_allow_html=True)
@@ -184,7 +184,7 @@ if model_option != "select" or stat_option != "select":
             
         else:
             st.markdown("""
-            <div style='text-align: center; font-size: 30px;'>
+            <div style='text-align: center; font-size: 20px;'>
             <span style='font-weight:500;'>4변수 딥러닝 모델
             </div>
             """, unsafe_allow_html=True)
@@ -211,7 +211,7 @@ if model_option != "select" or stat_option != "select":
 
     if stat_option != "select":
         st.markdown(f"""
-            <div style='color:#808080 font-size: 30px;'>
+            <div style='color:#808080 font-size: 20px;'>
             <span style='font-weight:200;'>selected stat: {stat_option}
             </div>
             """, unsafe_allow_html=True)
