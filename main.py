@@ -34,7 +34,7 @@ stat_option = st.sidebar.selectbox(
 )
 # 사이드바: 하단 이미지
 image_path = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/side_bar_2.png?raw=true"
-st.sidebar.markdown("<br><br><br><br><br>>", unsafe_allow_html=True)  
+st.sidebar.markdown("<br><br><br><br>", unsafe_allow_html=True)  
 st.sidebar.image(image_path, use_container_width=True)  
 st.sidebar.markdown(
     "<span style='color:#ced4da; font-size: 14px;'>  본 서비스는 단순 참고용이며, 모든 결정의 책임은 모두 이용자 본인에게 있다는 점을 유의하십시오.</span>", 
