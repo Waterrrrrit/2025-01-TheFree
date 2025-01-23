@@ -34,7 +34,7 @@ stat_option = st.sidebar.selectbox(
 )
 # 사이드바: 하단 이미지
 image_path = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/side_bar_2.png?raw=true"
-st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)  
+st.sidebar.markdown("<br><br><br><br><br>>", unsafe_allow_html=True)  
 st.sidebar.image(image_path, use_container_width=True)  
 st.sidebar.markdown(
     "<span style='color:#ced4da; font-size: 14px;'>  본 서비스는 단순 참고용이며, 모든 결정의 책임은 모두 이용자 본인에게 있다는 점을 유의하십시오.</span>", 
@@ -45,8 +45,8 @@ st.markdown('<div class="center-content">', unsafe_allow_html=True)
 
 # 제목
 st.markdown("""
-<div style='font-size:50px;'>  <!-- 전체 폰트 크기 설정 -->
-    <span style='color:#008d62; font-weight:bold; font-size:60px;'>01월 25일</span>이 주유하기 좋은 날!
+<div style='font-size:54px;'>  <!-- 전체 폰트 크기 설정 -->
+    <span style='color:#008d62; font-weight:bold; font-size:65px;'>01월 25일</span>이 주유하기 좋은 날!
 </div>
 """, unsafe_allow_html=True)
 
