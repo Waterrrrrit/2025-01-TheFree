@@ -30,12 +30,23 @@ stat_option = st.sidebar.selectbox(
     "stat",
     ("select", "환율", "금 시세", "국제 유가", "유류세")
 )
-
+# 사이드바: 하단 이미지
+image_path = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/side_bar_2.png?raw=true"
+st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)  
+st.sidebar.image(image_path, use_container_width=True)  
+st.sidebar.markdown(
+    "<span style='color:#ced4da; font-size: 10px;'>본 서비스는 단순 참고용이며, 모든 결정의 책임은 모두 이용자 본인에게 있습니다.</span>", 
+    unsafe_allow_html=True
+)
 # 페이지 콘텐츠
 st.markdown('<div class="center-content">', unsafe_allow_html=True)
 
 # 제목
-st.title("ㅇㅇ은 주유하기 좋은 날")
+st.markdown("""
+<div style='font-size:50px;'>  <!-- 전체 폰트 크기 설정 -->
+    <span style='color:#008d62; font-weight:bold; font-size:60px;'>01월 25일</span>은 주유하기 좋은 날!
+</div>
+""", unsafe_allow_html=True)
 
 # 메인 설명 텍스트
 st.write("구체적인 지표를 알고 싶으면 스크롤해주세요!")
@@ -56,7 +67,7 @@ data2 = pd.DataFrame({
 fig2 = px.line(data2, x="날짜", y="휘발유가", title="휘발유가")
 st.plotly_chart(fig2)
 # sub 설명 텍스트
-st.write("출처:")
+
 
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -158,6 +169,7 @@ if model_option != "select" or stat_option != "select":
 
                 # Plot the data using Plotly Express
                 fig = px.line(data, x='일자', y='원/달러', title='원/달러 (2020-2023)')
+                fig.update_traces(line=dict(color='#008d62'))
                 st.plotly_chart(fig)
                 # sub 설명 텍스트
                 st.write("출처:")
@@ -178,6 +190,7 @@ if model_option != "select" or stat_option != "select":
 
                 # Plot the data using Plotly Express
                 fig = px.line(data, x='일자', y='원/g_시가', title='원/g_시가 (2020-2023)')
+                fig.update_traces(line=dict(color='#008d62'))
                 st.plotly_chart(fig)
                                 # sub 설명 텍스트
                 st.write("출처:한국거래소(http://data.krx.co.kr/contents/MDC/MAIN/main/index.cmd)")
@@ -197,6 +210,7 @@ if model_option != "select" or stat_option != "select":
 
                 # Plot the data using Plotly Express
                 fig = px.line(data, x='일자', y='달러/배럴', title='달러/배럴 (2020-2023)')
+                fig.update_traces(line=dict(color='#008d62'))
                 st.plotly_chart(fig)
                 # sub 설명 텍스트
                 st.write("출처: 한국석유공사(https://www.knoc.co.kr/)")
@@ -204,7 +218,7 @@ if model_option != "select" or stat_option != "select":
                 st.write("데이터를 불러오는 중 문제가 발생했습니다:", str(e))
 
         else:
-            st.write("2020년 1월 1일부터 2023년 12월 31일까지의 유류세세 변동 추이입니다. 줌/아웃이 가능합니다.")
+            st.write("2020년 1월 1일부터 2023년 12월 31일까지의 유류세 변동 추이입니다. 줌/아웃이 가능합니다.")
             # External data loading
             url = "https://raw.githubusercontent.com/Waterrrrrit/2025-01-TheFree/refs/heads/main/%EC%9C%A0%EB%A5%98%EC%84%B8_%EC%B5%9C%EC%A2%85.csv"
             try:
@@ -216,9 +230,10 @@ if model_option != "select" or stat_option != "select":
 
                 # Plot the data using Plotly Express
                 fig = px.line(data, x='일자', y='원/리터', title='원/리터 (2020-2023)')
+                fig.update_traces(line=dict(color='#008d62'))
                 st.plotly_chart(fig)
                 # sub 설명 텍스트
-                st.write("출처:")
+                st.write("출처:한국석유공사(https://www.knoc.co.kr/)")
             except Exception as e:
                 st.write("데이터를 불러오는 중 문제가 발생했습니다:", str(e))
 
