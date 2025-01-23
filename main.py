@@ -28,7 +28,7 @@ model_option = st.sidebar.selectbox(
 # 사이드바: 지표 선택
 stat_option = st.sidebar.selectbox(
     "stat",
-    ("select", "환율", "금 시세", "유가", "유류세")
+    ("select", "환율", "금 시세", "국제 유가", "유류세")
 )
 
 # 페이지 콘텐츠
@@ -180,7 +180,7 @@ if model_option != "select" or stat_option != "select":
                 fig = px.line(data, x='일자', y='원/g_시가', title='원/g_시가 (2020-2023)')
                 st.plotly_chart(fig)
                                 # sub 설명 텍스트
-                st.write("출처:")
+                st.write("출처:한국거래소(http://data.krx.co.kr/contents/MDC/MAIN/main/index.cmd)")
             except Exception as e:
                 st.write("데이터를 불러오는 중 문제가 발생했습니다:", str(e))
 
