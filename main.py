@@ -28,7 +28,7 @@ model_option = st.sidebar.selectbox(
 # 사이드바: 지표 선택
 stat_option = st.sidebar.selectbox(
     "stat",
-    ("select", "환율", "금세", "유가", "유류세")
+    ("select", "환율", "금 시세", "유가", "유류세")
 )
 
 # 페이지 콘텐츠
@@ -73,8 +73,24 @@ if model_option != "select" or stat_option != "select":
 
     if stat_option != "select":
         st.subheader(f"selected stat: {stat_option}")
+        
         if stat_option == "환율":
             st.write("환율 지표에 대한 내용을 작성합니다.")
+            # External data loading
+            url = "https://raw.githubusercontent.com/Waterrrrrit/2025-01-TheFree/refs/heads/main/%ED%99%98%EC%9C%A8_%EC%B5%9C%EC%A2%85.csv"
+            try:
+                data = pd.read_csv(url)
+
+                # Convert the '일자' column to datetime format and sort the data by date
+                data['일자'] = pd.to_datetime(data['일자'])
+                data = data.sort_values(by='일자')
+
+                # Plot the data using Plotly Express
+                fig = px.line(data, x='일자', y='원/달러', title='원/달러 (2020-2023)')
+                st.plotly_chart(fig)
+
+            except Exception as e:
+                st.write("데이터를 불러오는 중 문제가 발생했습니다:", str(e))
         elif stat_option == "금 시세":
             st.write("과거의 금 시세 변동을 확인합니다.")
 
@@ -95,9 +111,42 @@ if model_option != "select" or stat_option != "select":
                 st.write("데이터를 불러오는 중 문제가 발생했습니다:", str(e))
 
         elif stat_option == "유가":
-            st.write("유가 지표에 대한 내용을 작성합니다.")
+            st.write("과거 유가 변동을 확인합니다.")
+            # External data loading
+            url = "https://raw.githubusercontent.com/Waterrrrrit/2025-01-TheFree/refs/heads/main/%EC%9C%A0%EA%B0%80file2.csv"
+            try:
+                data = pd.read_csv(url)
+
+                # Convert the '일자' column to datetime format and sort the data by date
+                data['일자'] = pd.to_datetime(data['일자'])
+                data = data.sort_values(by='일자')
+
+                # Plot the data using Plotly Express
+                fig = px.line(data, x='일자', y='달러/배럴', title='달러/배럴 (2020-2023)')
+                st.plotly_chart(fig)
+
+            except Exception as e:
+                st.write("데이터를 불러오는 중 문제가 발생했습니다:", str(e))
+
         else:
-            st.write("유류세 지표에 대한 내용을 작성합니다.")
+            st.write("과거 유류세 변동을 확인합니다.")
+            # External data loading
+            url = "https://raw.githubusercontent.com/Waterrrrrit/2025-01-TheFree/refs/heads/main/%EC%9C%A0%EB%A5%98%EC%84%B8_%EC%B5%9C%EC%A2%85.csv"
+            try:
+                data = pd.read_csv(url)
+
+                # Convert the '일자' column to datetime format and sort the data by date
+                data['일자'] = pd.to_datetime(data['일자'])
+                data = data.sort_values(by='일자')
+
+                # Plot the data using Plotly Express
+                fig = px.line(data, x='일자', y='원/리터', title='원/리터 (2020-2023)')
+                st.plotly_chart(fig)
+
+            except Exception as e:
+                st.write("데이터를 불러오는 중 문제가 발생했습니다:", str(e))
+
+            
 else:
     st.write("사이드바에서 비교 모델 또는 지표를 선택해주세요.")
 
