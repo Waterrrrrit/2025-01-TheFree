@@ -93,6 +93,13 @@ fig2 = px.line(data2, x="날짜", y="휘발유가", title="")
 fig2.update_traces(line=dict(color="#fdc01f"))
 st.plotly_chart(fig2)
 
+# 근거 그래프
+if st.button("Main_model.상관도"):
+    image15_url = "https://github.com/Waterrrrrit/2025-01-TheFree/blob/main/25-1_proj_mainmodel_based.png?raw=true"
+    st.image(image15_url, caption="원-달러 환율과 휘발유 가격", use_container_width=True)
+
+
+
 # sub 설명 텍스트
 st.divider()
 st.markdown('</div>', unsafe_allow_html=True)
